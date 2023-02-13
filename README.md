@@ -5,10 +5,10 @@
 1. The user project;
 2. The currency project
 
-The project using Remote-Procedure-Calls communicate with each other synchronously.
+The project uses Remote-Procedure-Calls to communicate with each other synchronously.
 
 This communication simply simulates the scenario whereby if a user is being created 
-in the User Project, then two currencies are automatically being created for that user.
+in the User Project, two currencies (Nigerian Naira and United States Dollars) are automatically being created for that user.
 
 Because the Currency Project is being hosted on a different server entirely (by simulation),
 It is impossible to create the Currency object from the User project, so without knowing the 
@@ -18,12 +18,14 @@ user project.
 
 
 #### How to run the project
+Run the user project as a seperate django project with it's own apps
 User Project
 ```
 python manage.py runserver
 ```
 
 
+Run the currency project as a seperate django project with it's own apps.
 Currency Project
 ```
 python manage.py runserver 0.0.0.0:50051
