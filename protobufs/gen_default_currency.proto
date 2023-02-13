@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+// enum CurrencyEnum {
+//	NAIRA = 0;
+//	DOLLAR = 1;
+//	EURO = 2;
+//}
+
+// Define your API request
+//message CurrencyRequest {
+//	int32 user_id = 1;
+//	CurrencyEnum name = 2;
+//	string code = 3;
+//}
+
+
+// Define the type to use as the response
+//message CurrencyResponseFormat {
+//	int32 id = 1;
+//	string name = 2;
+//}
+
+
+// Define the Currency Microservice response
+//message CurrencyResponse {
+//	// Add repeated to indicate a list of Currencies.
+//	repeated CurrencyResponseFormat currency_data = 1;
+//}
+
+
+// Define the Method of the API,
+// the  Microservice name, as Currency, and the request and response expected
+// It basically takes a request (i.e., CurrencyRequest) and returns a response (i.e., CurrencyResponse)
+//service Currency {
+//	rpc CurrencyRPC (CurrencyRequest) returns (CurrencyResponse);
+//}
+
+
+// Define the API request
+message DefaultCurrencyRequest {
+	int64 user_id = 1;
+}
+
+// Define the DefaultCurrency Microservice Response
+message DefaultCurrencyResponse {
+	int64 id = 1;
+	string name = 2;
+}
+
+// Define the Service
+service Currency {
+	rpc generateDefaultCurrency(DefaultCurrencyRequest) returns (DefaultCurrencyResponse);
+}
