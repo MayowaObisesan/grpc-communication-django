@@ -36,13 +36,9 @@ class UserViewSets(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """Perform Post Create action of User Model"""
-        print("On User save data")
         serializer.save()
-        print(serializer.data, end="\n\n")
         client = CurrencyStub(channel)
         email = serializer.data["email"]
         user = User.objects.filter(email=email).get()
         request = DefaultCurrencyRequest(user_id=user.id)
-        print(f"request: {request}")
         response = client.generateDefaultCurrency(request)
-        print(f"USER RESPONSE: {response}")
