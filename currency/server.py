@@ -27,7 +27,6 @@ class GenDefaultCurrencyService(CurrencyServicer):
             Currency(user_id=request.user_id, name="Nigerian Naira", code="NGN"),
             Currency(user_id=request.user_id, name="United States Dollar", code="USD"),
         ]
-        print(default_currencies)
         # Currency.objects.bulk_create(default_currencies)
         currency_ngn = Currency.objects.create(
             user_id=request.user_id, name="Nigerian Naira", code="NGN"
@@ -35,8 +34,6 @@ class GenDefaultCurrencyService(CurrencyServicer):
         currency_usd = Currency.objects.create(
             user_id=request.user_id, name="United States Dollars", code="USD"
         )
-        print("Created default currencies")
-        # return super().generateDefaultCurrency(request, context)
         return DefaultCurrencyResponse(**{"id": 1, "name": currency_ngn.name})
         # return {"status": grpc.StatusCode.OK, "message": "Default currencies created"}
 
